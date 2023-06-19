@@ -35,7 +35,7 @@ const renderco = function (data, c) {
     <p class="country__row"><span>💰</span>${data.currencies[0].name}</p>
   </div>
 </article>`;
-
+countriesContainer.innerHTML=' '
   countriesContainer.insertAdjacentHTML(`beforeend`, html);
   btn.style.opacity = 0;
   document.querySelector(`.container`).style.background = ` linear-gradient(
@@ -56,9 +56,20 @@ const rendererr = function (mes) {
   countriesContainer.insertAdjacentText(`beforeend`, mes);
 
 };
+renderSpinner = function(){
+  const markUp =`
+   <div class="spinner">
+  <i class="fas fa-spinner fa-spin"></i>
+</div> 
+  `
+  countriesContainer.innerHTML=' '
+  btn.style.opacity = 0;
+  countriesContainer.insertAdjacentHTML('afterbegin', markUp)
+}
 
 const myLocation = async function () {
 try {
+  renderSpinner()
   const getLocat = await getlocat();
 const { latitude: lat, longitude: lng } = getLocat.coords;
 if (!lat)   rendererr(`somthing is worng `)

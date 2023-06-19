@@ -17,3 +17,7 @@
 .country__img{
     width: 35vw;
 }
+.spinner{
+    font-size: 20em;
+    color: red;
+}
